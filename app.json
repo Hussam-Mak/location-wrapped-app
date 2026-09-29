@@ -1,25 +1,80 @@
 {
   "expo": {
-    "name": "location-wrapped-tmp",
-    "slug": "location-wrapped-tmp",
+    "name": "Location Wrapped",
+    "slug": "location-wrapped",
     "version": "1.0.0",
     "orientation": "portrait",
+    "scheme": "locationwrapped",
+    "userInterfaceStyle": "dark",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.locationwrapped.app",
+      "infoPlist": {
+        "UIBackgroundModes": ["location"],
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
+      "package": "com.locationwrapped.app",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#07070F",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION",
+        "FOREGROUND_SERVICE",
+        "FOREGROUND_SERVICE_LOCATION"
+      ]
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sqlite",
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#07070F",
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 200
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Location Wrapped uses your location in the background to quietly record the places you visit and build your personal recap. Your location history stays on your device.",
+          "locationAlwaysPermission": "Location Wrapped needs Always access to keep tracking visits when the app is closed. Your data never leaves your phone.",
+          "locationWhenInUsePermission": "Location Wrapped uses your location to detect places you visit and create your Wrapped recap. Your location history stays on your device.",
+          "isIosBackgroundLocationEnabled": true,
+          "isAndroidBackgroundLocationEnabled": true,
+          "isAndroidForegroundServiceEnabled": true
+        }
+      ],
+      [
+        "react-native-maps",
+        {
+          "googleMapsApiKey": ""
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "00000000-0000-0000-0000-000000000000"
+      }
     }
   }
 }
