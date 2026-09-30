@@ -11,7 +11,8 @@
     "verify:stats": "tsx scripts/verify-stats.ts",
     "prebuild": "expo prebuild",
     "prebuild:android": "expo prebuild --platform android",
-    "prebuild:ios": "expo prebuild --platform ios"
+    "prebuild:ios": "expo prebuild --platform ios",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@expo-google-fonts/outfit": "^0.4.3",
@@ -50,6 +51,7 @@
   "devDependencies": {
     "@types/react": "~19.2.2",
     "babel-plugin-module-resolver": "^5.0.3",
+    "patch-package": "^8.0.1",
     "tsx": "^4.23.15",
     "typescript": "~6.0.3"
   },
