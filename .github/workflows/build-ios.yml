@@ -7,15 +7,16 @@ on:
 
 jobs:
   ios:
-    runs-on: macos-15
+    # Expo SDK 57 requires Xcode 26.4+ (Swift 6.3); macos-15 images only ship up to 26.3.
+    runs-on: macos-26
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Select Xcode 26 (Swift 6.2)
+      - name: Select Xcode 26.4+ (Swift 6.3)
         uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: '26.3'
+          xcode-version: '26.4.1'
 
       - name: Setup Node
         uses: actions/setup-node@v4
